@@ -1,0 +1,43 @@
+﻿@model CalculoMatematico.Web.Models.DivisorViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Divisores de um número natural</h3>
+<hr />
+<form asp-controller="Home" asp-action="ObterDivisoresDeUmNumeroNatural" method="post">
+    <div class="form-group">
+        <label for="numero">Informe o número para obter os divisores:</label>
+        <input asp-for="Numero" type="text" name="numero" class="form-control" placeholder="Informe o número" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Obter</button>
+    </div>
+    <hr />
+
+    @if (Model.Divisores.Any() && Model.NumerosPrimos.Any())
+    {
+        <p>Resultado:</p>
+        var resultadoDivisor = string.Empty;
+        var resultodoNumeroPrimo = string.Empty;
+
+        foreach (var divisor in Model.Divisores)
+        {
+            resultadoDivisor += divisor.ToString() + " ";
+        }
+
+        foreach (var numero in Model.NumerosPrimos)
+        {
+            resultodoNumeroPrimo += numero.ToString() + " ";
+        }
+
+        <p>Divisores do número: @resultadoDivisor</p>
+        <p>Números primos do número: @resultodoNumeroPrimo</p>
+    }
+    else
+    {
+        <p>Número @Model.Numero não possui divisores</p>
+    }
+
+</form>

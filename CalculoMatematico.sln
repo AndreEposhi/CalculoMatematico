@@ -7,7 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E9D9092F-D9C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B75FC6FA-3FC1-48B6-82C1-201CB0A2A94C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMatematico.Core", "src\CalculoMatematico.Core\CalculoMatematico.Core.csproj", "{C29FCDBF-3C2C-42E4-B15B-5271592BE06C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C3F4E77B-C39C-4385-B2F9-60A093A38540}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A468AA56-10E4-42D7-93A8-42BD60B75986}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{22555CC3-9B33-4336-9E2E-5B132E44B103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMatematico.Core", "src\Core\CalculoMatematico.Core\CalculoMatematico.Core.csproj", "{22CCDABC-DA16-40A1-A837-57A1A811022C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMatematico.Web", "src\Web\CalculoMatematico.Web\CalculoMatematico.Web.csproj", "{FBD7F154-D867-48AC-A769-19F1282D6870}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,16 +23,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C29FCDBF-3C2C-42E4-B15B-5271592BE06C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C29FCDBF-3C2C-42E4-B15B-5271592BE06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C29FCDBF-3C2C-42E4-B15B-5271592BE06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C29FCDBF-3C2C-42E4-B15B-5271592BE06C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CCDABC-DA16-40A1-A837-57A1A811022C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CCDABC-DA16-40A1-A837-57A1A811022C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CCDABC-DA16-40A1-A837-57A1A811022C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CCDABC-DA16-40A1-A837-57A1A811022C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD7F154-D867-48AC-A769-19F1282D6870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD7F154-D867-48AC-A769-19F1282D6870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD7F154-D867-48AC-A769-19F1282D6870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD7F154-D867-48AC-A769-19F1282D6870}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C29FCDBF-3C2C-42E4-B15B-5271592BE06C} = {E9D9092F-D9C7-4CAE-BC84-590346ED084F}
+		{C3F4E77B-C39C-4385-B2F9-60A093A38540} = {E9D9092F-D9C7-4CAE-BC84-590346ED084F}
+		{A468AA56-10E4-42D7-93A8-42BD60B75986} = {E9D9092F-D9C7-4CAE-BC84-590346ED084F}
+		{22555CC3-9B33-4336-9E2E-5B132E44B103} = {E9D9092F-D9C7-4CAE-BC84-590346ED084F}
+		{22CCDABC-DA16-40A1-A837-57A1A811022C} = {A468AA56-10E4-42D7-93A8-42BD60B75986}
+		{FBD7F154-D867-48AC-A769-19F1282D6870} = {22555CC3-9B33-4336-9E2E-5B132E44B103}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43AF24E5-7F53-450F-BA68-943286AC1840}
