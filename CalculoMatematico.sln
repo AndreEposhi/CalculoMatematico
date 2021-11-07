@@ -13,9 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A468AA56-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{22555CC3-9B33-4336-9E2E-5B132E44B103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMatematico.Core", "src\Core\CalculoMatematico.Core\CalculoMatematico.Core.csproj", "{22CCDABC-DA16-40A1-A837-57A1A811022C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoMatematico.Core", "src\Core\CalculoMatematico.Core\CalculoMatematico.Core.csproj", "{22CCDABC-DA16-40A1-A837-57A1A811022C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMatematico.Web", "src\Web\CalculoMatematico.Web\CalculoMatematico.Web.csproj", "{FBD7F154-D867-48AC-A769-19F1282D6870}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoMatematico.Web", "src\Web\CalculoMatematico.Web\CalculoMatematico.Web.csproj", "{FBD7F154-D867-48AC-A769-19F1282D6870}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{5541375B-5355-4D06-8C61-53623DFF9A86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{3B7F63AE-6127-491A-8926-B69E63241036}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{827A86E8-01F7-4D52-9065-6DCB559C121D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMatematico.Core.Tests", "tests\UnitTests\Core\CalculoMatematico.Core.Tests\CalculoMatematico.Core.Tests.csproj", "{BFE85F9B-69AB-4E42-A3C2-97D519369175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +39,10 @@ Global
 		{FBD7F154-D867-48AC-A769-19F1282D6870}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD7F154-D867-48AC-A769-19F1282D6870}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD7F154-D867-48AC-A769-19F1282D6870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE85F9B-69AB-4E42-A3C2-97D519369175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE85F9B-69AB-4E42-A3C2-97D519369175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE85F9B-69AB-4E42-A3C2-97D519369175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE85F9B-69AB-4E42-A3C2-97D519369175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +53,10 @@ Global
 		{22555CC3-9B33-4336-9E2E-5B132E44B103} = {E9D9092F-D9C7-4CAE-BC84-590346ED084F}
 		{22CCDABC-DA16-40A1-A837-57A1A811022C} = {A468AA56-10E4-42D7-93A8-42BD60B75986}
 		{FBD7F154-D867-48AC-A769-19F1282D6870} = {22555CC3-9B33-4336-9E2E-5B132E44B103}
+		{5541375B-5355-4D06-8C61-53623DFF9A86} = {B75FC6FA-3FC1-48B6-82C1-201CB0A2A94C}
+		{3B7F63AE-6127-491A-8926-B69E63241036} = {B75FC6FA-3FC1-48B6-82C1-201CB0A2A94C}
+		{827A86E8-01F7-4D52-9065-6DCB559C121D} = {5541375B-5355-4D06-8C61-53623DFF9A86}
+		{BFE85F9B-69AB-4E42-A3C2-97D519369175} = {827A86E8-01F7-4D52-9065-6DCB559C121D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43AF24E5-7F53-450F-BA68-943286AC1840}
