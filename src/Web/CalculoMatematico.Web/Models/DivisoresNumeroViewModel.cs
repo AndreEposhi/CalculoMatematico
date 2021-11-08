@@ -2,10 +2,10 @@
 
 namespace CalculoMatematico.Web.Models
 {
-    public class DivisorViewModel
+    public class DivisoresNumeroViewModel
     {
         public int Numero { get; set; }
-        public IList<int> Divisores { get; set; } = new List<int>();
+        public IList<int> DivisoresNumeros { get; set; } = new List<int>();
         public IList<int> NumerosPrimos { get; set; } = new List<int>();
     }
 }

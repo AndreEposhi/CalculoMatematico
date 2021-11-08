@@ -1,12 +1,11 @@
-using CalculoMatematico.Web.Services;
+using CalculoMatematico.DivisoresNumero.Api.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Net.Http;
 
-namespace CalculoMatematico.Web
+namespace CalculoMatematico.DivisoresNumero.Api
 {
     public class Startup
     {
@@ -18,9 +17,9 @@ namespace CalculoMatematico.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<HttpClient, HttpClient>();
             services.AddScoped<IDivisoresNumeroService, DivisoresNumeroService>();
-            services.AddControllersWithViews();
+            services.AddSwaggerGen();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,14 +29,15 @@ namespace CalculoMatematico.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api responsável por obter os divisores e números primos de um número natural");
+            });
+
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -45,9 +45,7 @@ namespace CalculoMatematico.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

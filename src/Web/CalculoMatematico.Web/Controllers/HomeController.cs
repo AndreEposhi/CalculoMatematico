@@ -1,32 +1,28 @@
 ﻿using CalculoMatematico.Web.Models;
+using CalculoMatematico.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CalculoMatematico.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private readonly IDivisoresNumeroService _divisoresNumeroService;
+        public HomeController(IDivisoresNumeroService divisoresNumeroService)
         {
+            _divisoresNumeroService = divisoresNumeroService;
         }
 
-        public IActionResult Index(DivisorViewModel divisor)
+        public IActionResult Index(DivisoresNumeroViewModel divisor)
         {
             return View(divisor);
         }
 
         [HttpPost]
-        public IActionResult ObterDivisoresDeUmNumeroNatural(DivisorViewModel divisor)
+        public IActionResult ObterDivisoresDeUmNumeroNatural(DivisoresNumeroViewModel divisor)
         {
-            var divisores = Core.DivisoresNumero.ObterDivisoresDeUmNumeroNatural(divisor.Numero);
-            divisor.Divisores = divisores;
-            divisor.NumerosPrimos = Core.NumeroPrimo.ObterNumerosPrimosDeUmNumeroNatural(divisor.Numero, divisores);
-            return RedirectToAction("Index", divisor);
+            var divisoresNumeros = _divisoresNumeroService.ObterDivisoresDeUmNumeroNatural(divisor.Numero);
+
+            return RedirectToAction("Index", divisoresNumeros);
         }
     }
 }
