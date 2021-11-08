@@ -1,4 +1,4 @@
-﻿@model CalculoMatematico.Web.Models.DivisorViewModel
+﻿@model CalculoMatematico.Web.Models.DivisoresNumeroViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -16,13 +16,13 @@
     </div>
     <hr />
 
-    @if (Model.Divisores.Any() && Model.NumerosPrimos.Any())
+    @if (Model.DivisoresNumeros.Any() && Model.NumerosPrimos.Any())
     {
         <p>Resultado:</p>
         var resultadoDivisor = string.Empty;
         var resultodoNumeroPrimo = string.Empty;
 
-        foreach (var divisor in Model.Divisores)
+        foreach (var divisor in Model.DivisoresNumeros)
         {
             resultadoDivisor += divisor.ToString() + " ";
         }
