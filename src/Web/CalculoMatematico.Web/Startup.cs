@@ -1,10 +1,14 @@
+using CalculoMatematico.Web.Configurations;
 using CalculoMatematico.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Net.Http;
+using Microsoft.Extensions.Options;
+using Polly;
+using Polly.Extensions.Http;
+using System;
 
 namespace CalculoMatematico.Web
 {
@@ -18,8 +22,14 @@ namespace CalculoMatematico.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<HttpClient, HttpClient>();
-            services.AddScoped<IDivisoresNumeroService, DivisoresNumeroService>();
+            var retry = HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .WaitAndRetryAsync(3, retryAttemp => TimeSpan.FromSeconds(retryAttemp));
+
+            services.Configure<ApiConfiguration>(Configuration.GetSection(nameof(ApiConfiguration)));
+            services.AddSingleton<IApiConfiguration>(config => config.GetRequiredService<IOptions<ApiConfiguration>>().Value);
+            services.AddHttpClient<IDivisoresNumeroService, DivisoresNumeroService>(config => config.BaseAddress = new Uri(Configuration["ApiConfiguration:DivisoresNumeroUrl"]))
+                .AddPolicyHandler(retry);
             services.AddControllersWithViews();
         }
 
