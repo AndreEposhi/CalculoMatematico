@@ -1,4 +1,5 @@
-﻿using CalculoMatematico.Web.Models;
+﻿using CalculoMatematico.Web.Configurations;
+using CalculoMatematico.Web.Models;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -8,11 +9,12 @@ namespace CalculoMatematico.Web.Services
     public class DivisoresNumeroService : IDivisoresNumeroService
     {
         private readonly HttpClient _httpClient;
+        private readonly IApiConfiguration _apiConfiguration;
 
-        public DivisoresNumeroService(HttpClient httpClient)
+        public DivisoresNumeroService(HttpClient httpClient, IApiConfiguration apiConfiguration)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("https://localhost:44344");
+            _httpClient.BaseAddress = new Uri(apiConfiguration.DivisoresNumeroUrl);
         }
 
         public DivisoresNumeroViewModel ObterDivisoresDeUmNumeroNatural(int numero)
